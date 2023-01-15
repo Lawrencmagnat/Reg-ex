@@ -1,1 +1,104 @@
-This 
+To check the type of Credit Card.
+
+
+Like  (American-Express, Visa, and Master Card).
+
+To Validate Credit Card we will use Regular Expression.
+
+We should know about some prerequisites to check validation.
+
+CARD                                     PREFIX              LENGTH
+
+MASTER-CARD                  51-55                       16
+
+VISA                                         4                            13,16
+
+AMERICAN-EXPRESS      34,37                        15
+
+ 
+
+
+Regular Expression for Card Validation are as Follows:-
+1. Master-card regular expression
+To Validate Master-Card the regular expression would be:
+
+^5[1-5]{1}[0-9]{2}[\s]?[0-9]{4}[\s]?[0-9]{4}[\s]?[0-9]{4}$/
+‘ ^ ‘  is representing the starting of the Pattern.
+
+‘ 5[1-5]{1} ‘ is representing that the First letter must be 5 and the second letter can be within 1 to 5.
+
+‘ [0-9]{2}[\s]?[0-9]{4}[\s]?[0-9]{4}[\s]?[0-9]{4} ‘
+
+Above represents the rest of the number can be within 0-9.
+
+‘$’ represents the end of the pattern.
+
+2.Visa regular expression
+To Validate Visa Card there are two  regular expressions :
+
+ /^4{1}[0-9]{3}[\s]?[0-9]{4}[\s]?[0-9]{4}[\s]?[0-9]{1}$/
+Above regular Expression is for 13 digit visa card.
+ /^4{1}[0-9]{3}[\s]?[0-9]{4}[\s]?[0-9]{4}[\s]?[0-9]{4}$/
+Above regular Expression is for 16 digit visa card.
+‘ ^ ‘  is representing the starting of the Pattern.
+
+‘ 4{1} ‘ is representing that the First letter must be 4.
+
+‘ [0-9]{3}[\s]?[0-9]{4}[\s]?[0-9]{4}[\s]?[0-9]{4} ‘
+
+Above Represents the rest of the number can be within 0-9.
+
+‘$’ represents the end of the pattern.
+
+3.American-Express regular expression
+To Validate American-Express Card there are two  regular expressions :
+
+/^3[4|7]{1}[0-9]{2}[\s]?[0-9]{4}[\s]?[0-9]{4}[\s]?[0-9]{3}$/
+‘ ^ ‘  is representing the starting of the Pattern.
+
+‘ 3[4|7]{1} ‘ is representing that the First letter must be 3 and the second letter can be either 4 or 7.
+
+
+‘ [0-9]{2}[\s]?[0-9]{4}[\s]?[0-9]{4}[\s]?[0-9]{3}’ it  represents the rest of the number can be within 0-9.
+
+‘$’ represents the end of the pattern.
+
+JavaScript Code for credit card validation
+<script>
+      function checkcard()
+        {   
+            var type=document.getElementById("type").value;
+              type=parseInt(type);
+            var cardno=document.getElementById("card").value;
+            if(type=="1")
+                {
+                    
+                    
+                    var regex=/^5[1-5]{1}[0-9]{2}[\s]?[0-9]{4}[\s]?[0-9]{4}[\s]?[0-9]{4}$/;
+                     if(regex.test(cardno)){ alert("It is Valid Master-Card");}
+                    else{alert("Invalid Card");}
+                }
+              else if(type=="2")
+                {
+                    
+                    
+                    var regex=/^4{1}[0-9]{3}[\s]?[0-9]{4}[\s]?[0-9]{4}[\s]?[0-9]{1}$/;
+                    var regex1=/^4{1}[0-9]{3}[\s]?[0-9]{4}[\s]?[0-9]{4}[\s]?[0-9]{4}$/;
+                     if(regex.test(cardno)||regex1.test(cardno)){ alert("It is Valid Visa Card");}
+                    else{alert("Invalid Card");}
+                }
+            else
+                {
+                    var regex=/^3[4|7]{1}[0-9]{2}[\s]?[0-9]{4}[\s]?[0-9]{4}[\s]?[0-9]{3}$/;
+                     if(regex.test(cardno)){ alert("It is Valid American Express Card");}
+                    else{alert("Invalid Card");}
+                    
+                }
+           
+           
+        }
+       
+    
+    </script>
+ 
+

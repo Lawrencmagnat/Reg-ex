@@ -16,10 +16,15 @@ function CardCheck() {
 
         var cardRegex = /^4{1}[0-9]{3}[\s]?[0-9]{4}[\s]?[0-9]{4}$/;
         var cardRegex1 = /^4{1}[0-9]{3}[\s]?[0-9]{4}[\s]?[0-9]{4}$/;
-        if(RegExp.test(cardno)|| cardRegex1.test(cardno)){alert("It is Valid Visa Card");}
-else{alert("Invalid Card")}
+        if (cardRegex.test(cardno) || cardRegex1.test(cardno)) { alert("It is Valid Visa Card"); }
+        else { alert("Invalid Card"); }
+
 
     }
-    
 
+    else {
+        var cardRegex = /^3[4|7]{1}[0-9]{2}[\s]?[0-9]{4}[\s]?[0-9]{4}[\s]?[0-9]{3}$/;
+        if (cardRegex.test(cardno)) { alert("It is A valid American Express card"); }
+        else { alert("Invalid Card"); }
+    }
 }
