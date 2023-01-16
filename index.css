@@ -6,7 +6,7 @@
 }
 
 body {
-    font-size: 15px;
+    font-size: 25px;
     font-weight: 500;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     margin: 0;
@@ -16,4 +16,11 @@ body {
 form{
     align-items: center;
     padding-top: 10%;
+    font-size: 25px;
+   
+
+}
+.card{
+    border: 1px solid burlywood;
+    background: rgba(121,214,150,0.5);
 }
